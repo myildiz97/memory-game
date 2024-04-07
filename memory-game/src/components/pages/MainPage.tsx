@@ -1,17 +1,16 @@
 import { FC } from 'react';
-import { Button } from '@/components/ui/Button';
+import Settings from '../Settings';
+import StartGame from '../StartGame';
 
-interface MainPageProps {
+interface IMainPageProps {
 }
 
-const MainPage: FC<MainPageProps> = () => {
-  const handleClick = () => {
-    console.log('Button clicked');
-  }
+const MainPage: FC<IMainPageProps> = () => {
 
   return (
-    <div>
-      <Button onClick={handleClick}>Click me</Button>
+    <div className="flex flex-col items-center justify-center h-screen gap-y-5">
+      <Settings />
+      <StartGame />
     </div>
   );
 };
