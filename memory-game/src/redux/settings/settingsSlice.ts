@@ -32,9 +32,14 @@ export const settingsSlice = createSlice({
     setTime: (state, action: PayloadAction<boolean>) => {
       state.time = action.payload
     },
+    resetSettings: (state) => {
+      state.nickname = INITIAL_NICKNAME
+      state.mode = INITIAL_MODE
+      state.time = INITIAL_TIME
+    },
   },
 })
 
-export const { setNickname, setMode, setTime } = settingsSlice.actions
+export const { setNickname, setMode, setTime, resetSettings } = settingsSlice.actions
 
 export default settingsSlice.reducer
