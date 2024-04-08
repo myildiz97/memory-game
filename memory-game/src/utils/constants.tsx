@@ -1,38 +1,13 @@
-export enum PAGE_ROUTES {
-  MAIN = '/',
-  GAME = '/game',
-  RESULT = '/result',
-}
+import { GAME_MODES, GAME_MODES_GRID } from './types';
 
-export enum INPUT_TYPE {
-  text = 'text',
-  number = 'number',
-  email = 'email',
-  password = 'password',
-  tel = 'tel',
-  url = 'url',
-  search = 'search',
-  date = 'date',
-  time = 'time',
-  datetimeLocal = 'datetime-local',
-  month = 'month',
-  week = 'week',
-  color = 'color',
-  file = 'file',
-  hidden = 'hidden',
-  image = 'image',
-  range = 'range',
-  reset = 'reset',
-  submit = 'submit',
-  button = 'button',
-  checkbox = 'checkbox',
-  radio = 'radio',
-  select = 'select',
-  textarea = 'textarea',
-}
+export const INITIAL_NICKNAME = 'Player';
+export const INITIAL_MODE = GAME_MODES.EASY;
+export const INITIAL_TIME = false;
 
-export const GAME_MODES = [
-  { value: 'easy', label: '3x3' },
-  { value: 'medium', label: '4x4' },
-  { value: 'hard', label: '5x5' },
+export const SETTINGS_REDUCER_NAME = 'settings';
+
+export const GAME_MODES_LIST = [
+  { value: GAME_MODES.EASY, label: GAME_MODES_GRID.EASY },
+  { value: GAME_MODES.MEDIUM, label: GAME_MODES_GRID.MEDIUM },
+  { value: GAME_MODES.HARD, label: GAME_MODES_GRID.HARD },
 ];

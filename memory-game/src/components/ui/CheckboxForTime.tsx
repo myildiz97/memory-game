@@ -1,12 +1,19 @@
 import { FC } from 'react'
-import { Checkbox } from './Checkbox'
 import { Label } from './Label'
+import { Checkbox } from './CheckBox'
+import { useDispatch } from 'react-redux'
+import { setTime } from '@/redux/settings/settingsSlice'
 
 interface ICheckboxForTimeProps {
-  handleCheckedChange: (checked: boolean) => void
 }
 
-const CheckboxForTime: FC<ICheckboxForTimeProps> = ({ handleCheckedChange }) => {
+const CheckboxForTime: FC<ICheckboxForTimeProps> = () => {
+  const dispatch = useDispatch()
+
+  const handleCheckedChange = (checked: boolean) => {
+    dispatch(setTime(checked))
+  }
+
   return (
     <div className="flex items-center gap-2">
       <Checkbox id="game-time-checkbox" onCheckedChange={handleCheckedChange} />
