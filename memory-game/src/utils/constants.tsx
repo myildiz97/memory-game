@@ -43,8 +43,8 @@ export const GAME_MODES_LIST = [
   },
 ];
 
-export const GAME_BOARD_SIZE = {
-  [GAME_MODES.EASY]: 'w-56 h-56',
-  [GAME_MODES.MEDIUM]: 'w-72 h-72',
-  [GAME_MODES.HARD]: 'w-96 h-96',
-};
+export const GRID_CONFIGS = {
+  [GAME_MODES.EASY]: { cols: 3, size: 'w-56 h-56' },
+  [GAME_MODES.MEDIUM]: { cols: 4, size: 'w-80 h-80' },
+  [GAME_MODES.HARD]: { cols: 5, size: 'w-96 h-96' },
+}

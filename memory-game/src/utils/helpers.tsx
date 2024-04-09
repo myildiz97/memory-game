@@ -33,3 +33,15 @@ export const generateGridValues = (mode: GAME_MODES): string[] => {
   }
   return gridValues;
 };
+
+export const getRandomGridValues = (gridValues: string[], level: number): string[] => {
+  const randomGridValues: string[] = [];
+  while (randomGridValues.length < level) {
+    const randomIndex = Math.floor(Math.random() * gridValues.length);
+    const randomValue = gridValues[randomIndex];
+    if (!randomGridValues.includes(randomValue)) {
+      randomGridValues.push(randomValue);
+    }
+  }
+  return randomGridValues;
+}

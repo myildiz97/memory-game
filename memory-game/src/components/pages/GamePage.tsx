@@ -4,6 +4,7 @@ import type { RootState } from '../../app/store'
 import GameBoard from '../GameBoard';
 import { generateGridValues, shuffleArray } from '@/utils/helpers';
 import GameInfo from '../GameInfo';
+import GameChallenge from '../GameChallenge';
 
 interface IGamePageProps {
 }
@@ -16,18 +17,11 @@ const GamePage: FC<IGamePageProps> = () => {
     return shuffleArray(generateGridValues(mode));
   }, [mode]);
 
-  const game = useSelector((state: RootState) => state.game);
-  const { currentPickedValue } = game;
-  
   return (
     <div className='flex flex-col items-center justify-center gap-y-5 h-screen w-full'>
       <GameInfo />
-      <div>
-        <GameBoard gridValues={gridValues} mode={mode} />
-      </div>
-      <div>
-        <p>{currentPickedValue}</p>
-      </div>
+      <GameChallenge gridValues={gridValues} level={2} />
+      <GameBoard gridValues={gridValues} mode={mode} />
     </div>
   );
 };

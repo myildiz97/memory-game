@@ -3,14 +3,15 @@ import { FC, MouseEvent } from 'react';
 
 interface IGridProps {
   value: string;
-  onGridClick: (e: MouseEvent<HTMLDivElement>) => void;
+  onGridClick?: (e: MouseEvent<HTMLDivElement>) => void;
+  isClickable?: boolean;
 }
 
-const Grid: FC<IGridProps> = ({ value, onGridClick }) => {
+const Grid: FC<IGridProps> = ({ value, onGridClick, isClickable }) => {
   
   return (
     <div 
-      className='flex items-center justify-center w-full h-full bg-gray-200 rounded-md shadow-md cursor-pointer hover:bg-gray-300 transition-colors duration-300 ease-in-out'
+      className={`flex items-center justify-center w-full h-full ${isClickable && 'bg-gray-200 rounded-md shadow-md cursor-pointer hover:bg-gray-300 transition-colors duration-300 ease-in-out'} `}
       onClick={onGridClick}
     > 
       {
