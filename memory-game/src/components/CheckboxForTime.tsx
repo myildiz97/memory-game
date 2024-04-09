@@ -1,6 +1,6 @@
 import { FC } from 'react'
-import { Label } from './Label'
-import { Checkbox } from './CheckBox'
+import { Label } from './ui/Label'
+import { Checkbox } from './ui/CheckBox'
 import { useDispatch, useSelector } from 'react-redux'
 import { setTime } from '@/redux/settings/settingsSlice'
 import { RootState } from '@/app/store'

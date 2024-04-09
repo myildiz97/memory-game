@@ -1,19 +1,32 @@
-import { FC } from 'react';
+import { FC, useMemo } from 'react';
 import { useSelector } from 'react-redux';
 import type { RootState } from '../../app/store'
+import GameBoard from '../GameBoard';
+import { generateGridValues, shuffleArray } from '@/utils/helpers';
+import GameInfo from '../GameInfo';
 
-interface GamePageProps {
+interface IGamePageProps {
 }
 
-const GamePage: FC<GamePageProps> = () => {
+const GamePage: FC<IGamePageProps> = () => {
   const settings = useSelector((state: RootState) => state.settings);
+  const { mode } = settings;
+  
+  const gridValues = useMemo(() => {
+    return shuffleArray(generateGridValues(mode));
+  }, [mode]);
 
+  const game = useSelector((state: RootState) => state.game);
+  const { currentPickedValue } = game;
+  
   return (
-    <div>
+    <div className='flex flex-col items-center justify-center gap-y-5 h-screen w-full'>
+      <GameInfo />
       <div>
-        <p>{settings.nickname}</p>
-        <p>{settings.mode}</p>
-        <p>{settings.time ? 'Time constraint' : 'No time constraint'}</p>
+        <GameBoard gridValues={gridValues} mode={mode} />
+      </div>
+      <div>
+        <p>{currentPickedValue}</p>
       </div>
     </div>
   );

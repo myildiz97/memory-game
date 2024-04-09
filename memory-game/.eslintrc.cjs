@@ -18,5 +18,11 @@ module.exports = {
     'indent': ['error', 2],
     'quotes': ['error', 'single'],
     'no-unused-vars': 'on',
+    'printWidth': 120,
+    'eslint.autoFixOnSave': 'true',
+    'eslintIntegration': 'true',
+    'bracketSpacing': 'true',
+    'trailingComma': 'all',
+    'endOfLine': 'auto',
   },
 }

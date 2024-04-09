@@ -7,7 +7,7 @@ import {
   SelectLabel,
   SelectTrigger,
   SelectValue,
-} from './Select'
+} from './ui/Select'
 import { GAME_MODES_LIST } from '@/utils/constants'
 import { useDispatch, useSelector } from 'react-redux'
 import { setMode } from '@/redux/settings/settingsSlice'

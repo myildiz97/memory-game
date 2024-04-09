@@ -1,6 +1,6 @@
-import { FC } from 'react';
-import { Input } from './Input';
-import { Label } from './Label';
+import { ChangeEvent, FC } from 'react';
+import { Input } from './ui/Input';
+import { Label } from './ui/Label';
 import { INITIAL_NICKNAME } from '@/utils/constants';
 import { useDispatch, useSelector } from 'react-redux';
 import { setNickname } from '@/redux/settings/settingsSlice';
@@ -14,7 +14,7 @@ const NicknameInput: FC<INicknameInputProps> = () => {
   const settings = useSelector((state: RootState) => state.settings);
   const { nickname } = settings;
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     dispatch(setNickname(e.target.value))
   }
 
