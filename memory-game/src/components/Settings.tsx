@@ -1,7 +1,7 @@
 import { FC } from 'react'
-import { SelectMode } from './ui/SelectMode'
-import CheckboxForTime from './ui/CheckboxForTime'
-import NicknameInput from './ui/NicknameInput'
+import { SelectMode } from './SelectMode'
+import CheckboxForTime from './CheckboxForTime'
+import NicknameInput from './NicknameInput'
 
 interface ISettingsProps {
 }
