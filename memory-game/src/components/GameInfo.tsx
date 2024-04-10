@@ -15,7 +15,7 @@ const GameInfo: FC<IGameInfoProps> = () => {
       <p className='font-bold'>{nickname}</p>
       <p>Level: <span className='text-blue-900 font-bold'>{level}</span></p>
       <p>Score: <span className='text-blue-900 font-bold'>{score}</span></p>
-      {!time &&  <Timer />}
+      {time &&  <Timer />}
     </div>
   );
 };

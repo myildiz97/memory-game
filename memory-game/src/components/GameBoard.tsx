@@ -1,7 +1,7 @@
 import { FC, MouseEvent, useEffect, useRef } from 'react';
 import Grid from './Grid';
 import { useDispatch, useSelector } from 'react-redux';
-import { resetGame, setGameResult, setLevel, setScore, setTimerReset } from '@/redux/game/gameSlice';
+import { setGameResult, setLevel, setScore, setTimerReset } from '@/redux/game/gameSlice';
 import { GRID_CONFIGS } from '@/utils/constants';
 import { RootState } from '@/app/store';
 import { calculateNewScore } from '@/utils/helpers';
@@ -22,7 +22,6 @@ const GameBoard: FC<IGameBoardProps> = ({ gridValues }) => {
 
   const gameOver = (type: LOSE_TYPES) => {
     const result = type === LOSE_TYPES.TIME_LOSE ? RESULTS.TIME_LOSE : RESULTS.SELECT_LOSE;
-    dispatch(resetGame());
     dispatch(setGameResult(result));
     navigate(PAGE_ROUTES.RESULT);
   };

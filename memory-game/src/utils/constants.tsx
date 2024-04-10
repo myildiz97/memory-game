@@ -14,7 +14,7 @@ export const INITIAL_SCORE = 0;
 export const INITIAL_IS_TIME_UP = false;
 export const INITIAL_DURATION = 11;
 export const INITIAL_TIMER_RESET = false;
-export const INITIAL_RESULT = RESULTS.LOSE;
+export const INITIAL_RESULT = RESULTS.SELECT_LOSE;
 
 export const COLORS = ['red', 'green', 'blue', 'yellow', 'purple', 'pink', 'brown']; 
 export const NUMBERS = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9].toString().split(',');
