@@ -1,4 +1,4 @@
-import { GAME_REDUCER_NAME, INITIAL_DURATION, INITIAL_IS_TIME_UP, INITIAL_LEVEL, INITIAL_RANDOM_GRID_VALUES, INITIAL_RESULT, INITIAL_SCORE } from '@/utils/constants';
+import { GAME_REDUCER_NAME, INITIAL_DURATION, INITIAL_IS_TIME_UP, INITIAL_LEVEL, INITIAL_RANDOM_GRID_VALUES, INITIAL_RESULT, INITIAL_SCORE, INITIAL_TIMER_RESET } from '@/utils/constants';
 import { RESULTS } from '@/utils/types';
 import { PayloadAction, createSlice } from '@reduxjs/toolkit';
 
@@ -8,6 +8,7 @@ export interface IGameStates {
   score: number;
   isTimeUp: boolean;
   durationInSeconds: number;
+  timerResetFlag: boolean;
   result: RESULTS;
 }
 
@@ -17,6 +18,7 @@ const initialState: IGameStates = {
   score: INITIAL_SCORE,
   isTimeUp: INITIAL_IS_TIME_UP,
   durationInSeconds: INITIAL_DURATION,
+  timerResetFlag: INITIAL_TIMER_RESET,
   result: INITIAL_RESULT,
 };
 
@@ -54,6 +56,12 @@ export const gameSlice = createSlice({
     resetGameDuration: (state) => {
       state.durationInSeconds = INITIAL_DURATION;
     },
+    setTimerReset: (state, action: PayloadAction<boolean>) => {
+      state.timerResetFlag = action.payload;
+    },
+    resetTimerReset: (state) => {
+      state.timerResetFlag = INITIAL_TIMER_RESET;
+    },
     setGameResult: (state, action: PayloadAction<RESULTS>) => {
       state.result = action.payload;
     },
@@ -65,10 +73,13 @@ export const gameSlice = createSlice({
       state.level = INITIAL_LEVEL;
       state.score = INITIAL_SCORE;
       state.isTimeUp = INITIAL_IS_TIME_UP;
+      state.durationInSeconds = INITIAL_DURATION;
+      state.timerResetFlag = INITIAL_TIMER_RESET;
+      state.result = INITIAL_RESULT;
     },
   },
 });
 
-export const { setRandomGridValues, resetRandomGridValues, setLevel, resetLevel, setScore, resetScore, setGameTimeUp, resetGameTimeUp,setGameDuration, resetGameDuration, setGameResult, resetGameResult, resetGame } = gameSlice.actions;
+export const { setRandomGridValues, resetRandomGridValues, setLevel, resetLevel, setScore, resetScore, setGameTimeUp, resetGameTimeUp,setGameDuration, resetGameDuration, setGameResult, resetGameResult, setTimerReset, resetTimerReset, resetGame } = gameSlice.actions;
 
 export default gameSlice.reducer;

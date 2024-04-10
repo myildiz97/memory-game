@@ -16,7 +16,13 @@ export enum GAME_MODES_GRID {
   HARD = '5x5',
 }
 
+export enum LOSE_TYPES {
+  TIME_LOSE = 'time',
+  SELECT_LOSE = 'select',
+}
+
 export enum RESULTS {
   WIN = 'You are the Champ',
-  LOSE = 'Nice try',
+  TIME_LOSE = 'Time is up! Nice try',
+  SELECT_LOSE = 'Wrong selection! Nice try',
 }

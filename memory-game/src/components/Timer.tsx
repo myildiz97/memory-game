@@ -8,7 +8,7 @@ interface ITimerProps {
 
 const Timer: FC<ITimerProps> = () => {
   const dispatch = useDispatch();
-  const { durationInSeconds } = useSelector((state: RootState) => state.game);
+  const { durationInSeconds, timerResetFlag } = useSelector((state: RootState) => state.game);
 
   const [seconds, setSeconds] = useState<number>(durationInSeconds);
   const timer = useRef<NodeJS.Timeout | null>(null);
@@ -33,6 +33,10 @@ const Timer: FC<ITimerProps> = () => {
       }
     }
   }, [seconds, dispatch]);
+
+  useEffect(() => {
+    setSeconds(durationInSeconds);
+  }, [timerResetFlag, durationInSeconds, dispatch]);
 
   const minutes = Math.floor(seconds / 60);
   const remainingSeconds = seconds % 60;

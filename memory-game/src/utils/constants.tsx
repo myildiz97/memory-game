@@ -12,7 +12,8 @@ export const INITIAL_RANDOM_GRID_VALUES = [];
 export const INITIAL_LEVEL = 1;
 export const INITIAL_SCORE = 0;
 export const INITIAL_IS_TIME_UP = false;
-export const INITIAL_DURATION = 7;
+export const INITIAL_DURATION = 11;
+export const INITIAL_TIMER_RESET = false;
 export const INITIAL_RESULT = RESULTS.LOSE;
 
 export const COLORS = ['red', 'green', 'blue', 'yellow', 'purple', 'pink', 'brown']; 
