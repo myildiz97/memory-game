@@ -62,7 +62,7 @@ const GameBoard: FC<IGameBoardProps> = ({ gridValues }) => {
   }, [isTimeUp]);
   
   return (
-    <div className={`border border-gray-200 p-4 rounded-md`} style={{ display: 'grid', gridTemplateColumns: `repeat(${GRID_CONFIGS[mode].cols}, 1fr)`, gap: '1rem' }}>
+    <div className={`border border-gray-500 p-2 rounded-md `} style={{ display: 'grid', placeItems: 'center', gridTemplateColumns: `repeat(${GRID_CONFIGS[mode].cols}, 1fr)`, gap: '1rem' }}>
       {gridValues.map((value, index) => (
         <Grid key={index} value={value} onGridClick={onGridClick} isClickable={true} />
       ))}
