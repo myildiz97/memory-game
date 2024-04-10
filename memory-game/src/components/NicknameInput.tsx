@@ -1,6 +1,5 @@
 import { ChangeEvent, FC } from 'react';
 import { Input } from './ui/Input';
-import { Label } from './ui/Label';
 import { INITIAL_NICKNAME } from '@/utils/constants';
 import { useDispatch, useSelector } from 'react-redux';
 import { setNickname } from '@/redux/settings/settingsSlice';
@@ -20,7 +19,6 @@ const NicknameInput: FC<INicknameInputProps> = () => {
 
   return (
     <div className="grid w-full max-w-sm items-center gap-1.5">
-      <Label htmlFor='nickname'>Nickname:</Label>
       <Input type='text' id='nickname' placeholder={INITIAL_NICKNAME} onChange={handleChange} value={nickname} />
     </div>
   );
