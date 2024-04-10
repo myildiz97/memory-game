@@ -15,3 +15,8 @@ export enum GAME_MODES_GRID {
   MEDIUM = '4x4',
   HARD = '5x5',
 }
+
+export enum RESULTS {
+  WIN = 'You are the Champ',
+  LOSE = 'Nice try',
+}

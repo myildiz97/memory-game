@@ -1,27 +1,74 @@
-import { GAME_REDUCER_NAME, INITIAL_CURRENT_PICKED_VALUE } from '@/utils/constants';
+import { GAME_REDUCER_NAME, INITIAL_DURATION, INITIAL_IS_TIME_UP, INITIAL_LEVEL, INITIAL_RANDOM_GRID_VALUES, INITIAL_RESULT, INITIAL_SCORE } from '@/utils/constants';
+import { RESULTS } from '@/utils/types';
 import { PayloadAction, createSlice } from '@reduxjs/toolkit';
 
 export interface IGameStates {
-  currentPickedValue: string;
+  randomGridValues: string[];
+  level: number;
+  score: number;
+  isTimeUp: boolean;
+  durationInSeconds: number;
+  result: RESULTS;
 }
 
 const initialState: IGameStates = {
-  currentPickedValue: INITIAL_CURRENT_PICKED_VALUE
-}
+  randomGridValues: INITIAL_RANDOM_GRID_VALUES,
+  level: INITIAL_LEVEL,
+  score: INITIAL_SCORE,
+  isTimeUp: INITIAL_IS_TIME_UP,
+  durationInSeconds: INITIAL_DURATION,
+  result: INITIAL_RESULT,
+};
 
 export const gameSlice = createSlice({
   name: GAME_REDUCER_NAME,
   initialState,
   reducers: {
-    setCurrentPickedValue: (state, action: PayloadAction<string>) => {
-      state.currentPickedValue = action.payload
+    setRandomGridValues: (state, action: PayloadAction<string[]>) => {
+      state.randomGridValues = action.payload;
     },
-    resetCurrentPickedValue: (state) => {
-      state.currentPickedValue = INITIAL_CURRENT_PICKED_VALUE
-    }
+    resetRandomGridValues: (state) => {
+      state.randomGridValues = INITIAL_RANDOM_GRID_VALUES;
+    },
+    setLevel: (state, action: PayloadAction<number>) => {
+      state.level = action.payload;
+    },
+    resetLevel: (state) => {
+      state.level = INITIAL_LEVEL;
+    },
+    setScore: (state, action: PayloadAction<number>) => {
+      state.score = action.payload;
+    },
+    resetScore: (state) => {
+      state.score = INITIAL_SCORE;
+    },
+    setGameTimeUp: (state, action: PayloadAction<boolean>) => {
+      state.isTimeUp = action.payload;
+    },
+    resetGameTimeUp: (state) => {
+      state.isTimeUp = INITIAL_IS_TIME_UP;
+    },
+    setGameDuration: (state, action: PayloadAction<number>) => {
+      state.durationInSeconds = action.payload;
+    },
+    resetGameDuration: (state) => {
+      state.durationInSeconds = INITIAL_DURATION;
+    },
+    setGameResult: (state, action: PayloadAction<RESULTS>) => {
+      state.result = action.payload;
+    },
+    resetGameResult: (state) => {
+      state.result = INITIAL_RESULT;
+    },
+    resetGame: (state) => {
+      state.randomGridValues = INITIAL_RANDOM_GRID_VALUES;
+      state.level = INITIAL_LEVEL;
+      state.score = INITIAL_SCORE;
+      state.isTimeUp = INITIAL_IS_TIME_UP;
+    },
   },
-})
+});
 
-export const { setCurrentPickedValue, resetCurrentPickedValue } = gameSlice.actions
+export const { setRandomGridValues, resetRandomGridValues, setLevel, resetLevel, setScore, resetScore, setGameTimeUp, resetGameTimeUp,setGameDuration, resetGameDuration, setGameResult, resetGameResult, resetGame } = gameSlice.actions;
 
-export default gameSlice.reducer
+export default gameSlice.reducer;

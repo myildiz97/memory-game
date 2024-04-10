@@ -1,6 +1,6 @@
 import { FC, useMemo } from 'react';
 import { useSelector } from 'react-redux';
-import type { RootState } from '../../app/store'
+import type { RootState } from '../../app/store';
 import GameBoard from '../GameBoard';
 import { generateGridValues, shuffleArray } from '@/utils/helpers';
 import GameInfo from '../GameInfo';
@@ -10,8 +10,7 @@ interface IGamePageProps {
 }
 
 const GamePage: FC<IGamePageProps> = () => {
-  const settings = useSelector((state: RootState) => state.settings);
-  const { mode } = settings;
+  const { mode } = useSelector((state: RootState) => state.settings);
   
   const gridValues = useMemo(() => {
     return shuffleArray(generateGridValues(mode));
@@ -20,8 +19,8 @@ const GamePage: FC<IGamePageProps> = () => {
   return (
     <div className='flex flex-col items-center justify-center gap-y-5 h-screen w-full'>
       <GameInfo />
-      <GameChallenge gridValues={gridValues} level={2} />
-      <GameBoard gridValues={gridValues} mode={mode} />
+      <GameChallenge gridValues={gridValues} />
+      <GameBoard gridValues={gridValues} />
     </div>
   );
 };

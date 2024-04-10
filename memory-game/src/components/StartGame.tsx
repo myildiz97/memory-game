@@ -2,7 +2,8 @@ import { FC } from 'react';
 import { Button } from './ui/Button';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import { resetCurrentPickedValue } from '@/redux/game/gameSlice';
+import { resetGame } from '@/redux/game/gameSlice';
+import { PAGE_ROUTES } from '@/utils/types';
 
 interface IStartGameProps {
 }
@@ -12,9 +13,9 @@ const StartGame: FC<IStartGameProps> = () => {
   const dispatch = useDispatch();
 
   const handleClick = () => {
-    navigate('/game');
-    dispatch(resetCurrentPickedValue());
-  }
+    dispatch(resetGame());
+    navigate(PAGE_ROUTES.GAME);
+  };
 
   return (
     <div>

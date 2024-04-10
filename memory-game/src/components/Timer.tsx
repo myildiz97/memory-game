@@ -1,10 +1,15 @@
+import { RootState } from '@/app/store';
+import { setGameTimeUp } from '@/redux/game/gameSlice';
 import { useState, useEffect, FC, useRef } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 
 interface ITimerProps {
-  durationInSeconds: number;
 }
 
-const Timer: FC<ITimerProps> = ({ durationInSeconds }) => {
+const Timer: FC<ITimerProps> = () => {
+  const dispatch = useDispatch();
+  const { durationInSeconds } = useSelector((state: RootState) => state.game);
+
   const [seconds, setSeconds] = useState<number>(durationInSeconds);
   const timer = useRef<NodeJS.Timeout | null>(null);
 
@@ -23,10 +28,11 @@ const Timer: FC<ITimerProps> = ({ durationInSeconds }) => {
   useEffect(() => {
     if (seconds <= 0) {
       if (timer.current) {
+        dispatch(setGameTimeUp(true));
         clearInterval(timer.current);
       }
     }
-  }, [seconds]);
+  }, [seconds, dispatch]);
 
   const minutes = Math.floor(seconds / 60);
   const remainingSeconds = seconds % 60;

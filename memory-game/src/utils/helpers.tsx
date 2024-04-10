@@ -1,7 +1,7 @@
-import { GAME_MODES_LIST } from './constants';
+import { GAME_MODES_LIST, LEVELS, SCORES } from './constants';
 import { GAME_MODES } from './types';
 
-export const shuffleArray = (array: any[]): any[] => {
+export const shuffleArray = (array: string[]): string[] => {
   const newArray = [...array];
   for (let i = newArray.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
@@ -34,9 +34,14 @@ export const generateGridValues = (mode: GAME_MODES): string[] => {
   return gridValues;
 };
 
-export const getRandomGridValues = (gridValues: string[], level: number): string[] => {
+export const getModeLevel = (mode: GAME_MODES, level: number): number => {
+  return LEVELS[mode][level as keyof typeof LEVELS.easy];
+};
+
+export const getRandomGridValues = (gridValues: string[], levelOfMode: number): string[] => {
   const randomGridValues: string[] = [];
-  while (randomGridValues.length < level) {
+
+  while (randomGridValues.length < levelOfMode) {
     const randomIndex = Math.floor(Math.random() * gridValues.length);
     const randomValue = gridValues[randomIndex];
     if (!randomGridValues.includes(randomValue)) {
@@ -44,4 +49,9 @@ export const getRandomGridValues = (gridValues: string[], level: number): string
     }
   }
   return randomGridValues;
-}
+};
+
+export const calculateNewScore = (score: number, mode: GAME_MODES, isTimed: boolean): number => {
+  const newScore = isTimed ? score + SCORES[mode].timed : score + SCORES[mode].timeless;
+  return newScore;
+};
