@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import MainPage from './components/pages/MainPage';
 import GamePage from './components/pages/GamePage';
 import ResultPage from './components/pages/ResultPage';

@@ -1,10 +1,10 @@
-import { getModeLevel, getRandomGridValues } from '@/utils/helpers';
+import { getModeLevel, getRandomCardValues } from '@/utils/helpers';
 import { FC, useEffect, useMemo, useRef } from 'react';
-import Grid from './Grid';
 import { useDispatch, useSelector } from 'react-redux';
-import { setRandomGridValues } from '@/redux/game/gameSlice';
+import { setRandomCardValues } from '@/redux/game/gameSlice';
 import { RootState } from '@/app/store';
 import { INITIAL_LEVEL } from '@/utils/constants';
+import RandomCard from './RandomCard';
 
 interface IGameChallengeProps {
   gridValues: string[];
@@ -17,22 +17,22 @@ const GameChallenge: FC<IGameChallengeProps> = ({ gridValues }) => {
 
   const levelOfModeRef = useRef<number>(INITIAL_LEVEL);
   
-  const randomGridValues = useMemo(() => {
+  const randomCardValues = useMemo(() => {
     const levelOfMode = getModeLevel(mode, level);
     levelOfModeRef.current = levelOfMode;
-    return getRandomGridValues(gridValues, levelOfMode);
+    return getRandomCardValues(gridValues, levelOfMode);
   }, [gridValues, level, mode]);
 
   useEffect(() => {
-    dispatch(setRandomGridValues(randomGridValues));
-  }, [dispatch, randomGridValues]);
+    dispatch(setRandomCardValues(randomCardValues));
+  }, [dispatch, randomCardValues]);
   
   const columnNumber = levelOfModeRef.current > 6 ? 6 : levelOfModeRef.current;
 
   return (
     <div style={{ display: 'grid', gridTemplateColumns: `repeat(${columnNumber}, 1fr)`, gap: '1rem' }}>
-      {randomGridValues.map((value, index) => (
-        <Grid key={index} value={value} />
+      {randomCardValues.map((value, index) => (
+        <RandomCard key={index} value={value} />
       ))}
     </div>
   );

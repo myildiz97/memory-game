@@ -36,7 +36,7 @@ const Timer: FC<ITimerProps> = () => {
 
   useEffect(() => {
     setSeconds(durationInSeconds);
-  }, [timerResetFlag, durationInSeconds, dispatch]);
+  }, [timerResetFlag, durationInSeconds]);
 
   const minutes = Math.floor(seconds / 60);
   const remainingSeconds = seconds % 60;

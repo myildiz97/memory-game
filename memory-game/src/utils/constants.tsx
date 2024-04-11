@@ -69,3 +69,9 @@ export const LEVELS = {
   [GAME_MODES.MEDIUM]: { 1: 3, 2: 4, 3: 6, 4: 9, 5: 12 },
   [GAME_MODES.HARD]: { 1: 4, 2: 6, 3: 9, 4: 13, 5: 16 },
 };
+
+export const CARD_VISIBILITY_TIMES_WRT_LEVEL = {
+  [GAME_MODES.EASY]: { 1: 1000, 2: 1500, 3: 2500, 4: 4000, 5: 6000 },
+  [GAME_MODES.MEDIUM]: { 1: 1500, 2: 2500, 3: 4000, 4: 6000, 5: 8000 },
+  [GAME_MODES.HARD]: { 1: 2000, 2: 4000, 3: 6000, 4: 8000, 5: 10000 },
+};

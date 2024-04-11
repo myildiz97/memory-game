@@ -1,4 +1,4 @@
-import { GAME_MODES_LIST, LEVELS, SCORES } from './constants';
+import { CARD_VISIBILITY_TIMES_WRT_LEVEL, GAME_MODES_LIST, LEVELS, SCORES } from './constants';
 import { GAME_MODES, GAME_MODES_GRID } from './types';
 
 export const shuffleArray = (array: string[]): string[] => {
@@ -10,7 +10,7 @@ export const shuffleArray = (array: string[]): string[] => {
   return newArray;
 };
 
-export const generateGridValues = (mode: GAME_MODES): string[] => {
+export const generateCardValues = (mode: GAME_MODES): string[] => {
   let gridValues: string[] = [];
   let list;
   switch (mode) {
@@ -38,7 +38,7 @@ export const getModeLevel = (mode: GAME_MODES, level: number): number => {
   return LEVELS[mode][level as keyof typeof LEVELS.easy];
 };
 
-export const getRandomGridValues = (gridValues: string[], levelOfMode: number): string[] => {
+export const getRandomCardValues = (gridValues: string[], levelOfMode: number): string[] => {
   const randomGridValues: string[] = [];
 
   while (randomGridValues.length < levelOfMode) {
@@ -74,4 +74,23 @@ export const getModeGrid = (mode: GAME_MODES): string => {
   }
 
   return modeGrid;
+};
+
+export const getLevelTime = (level: number, mode: GAME_MODES): number => {
+  let time = 0;
+  switch (mode) {
+    case GAME_MODES.EASY:
+      time = CARD_VISIBILITY_TIMES_WRT_LEVEL.easy[level as keyof typeof CARD_VISIBILITY_TIMES_WRT_LEVEL.easy];
+      break;
+    case GAME_MODES.MEDIUM:
+      time = CARD_VISIBILITY_TIMES_WRT_LEVEL.medium[level as keyof typeof CARD_VISIBILITY_TIMES_WRT_LEVEL.medium];
+      break;
+    case GAME_MODES.HARD:
+      time = CARD_VISIBILITY_TIMES_WRT_LEVEL.hard[level as keyof typeof CARD_VISIBILITY_TIMES_WRT_LEVEL.hard];
+      break;
+    default:
+      time = CARD_VISIBILITY_TIMES_WRT_LEVEL.easy[level as keyof typeof CARD_VISIBILITY_TIMES_WRT_LEVEL.easy];
+      break;
+  }
+  return time;
 };
