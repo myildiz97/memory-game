@@ -12,6 +12,12 @@
 - Time limit changes wrt level and mode.
 ## Tech-stack
 ![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB) ![TypeScript](https://img.shields.io/badge/typescript-%23007ACC.svg?style=for-the-badge&logo=typescript&logoColor=white) ![TailwindCSS](https://img.shields.io/badge/tailwindcss-%2338B2AC.svg?style=for-the-badge&logo=tailwind-css&logoColor=white) ![Redux](https://img.shields.io/badge/redux-%23593d88.svg?style=for-the-badge&logo=redux&logoColor=white) ![shadcn-ui](https://avatars.githubusercontent.com/u/139895814?s=48&v=4)
+## How to run on local
+```
+cd memory-game
+npm install
+npm run dev
+```
 ## TO-DO
 - [ ] Display the value on grid that found correctly.
 - [ ] Subtract the found value from the desired row.
