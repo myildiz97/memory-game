@@ -1,4 +1,4 @@
-import { CARD_VISIBILITY_TIMES_WRT_LEVEL, GAME_MODES_LIST, LEVELS, SCORES } from './constants';
+import { CARD_VISIBILITY_TIMES_WRT_LEVEL, GAME_MODES_LIST, LEVELS, SCORES, TIMER_DURATION_WRT_LEVEL } from './constants';
 import { GAME_MODES, GAME_MODES_GRID } from './types';
 
 export const shuffleArray = (array: string[]): string[] => {
@@ -93,4 +93,23 @@ export const getLevelTime = (level: number, mode: GAME_MODES): number => {
       break;
   }
   return time;
+};
+
+export const getTimerDuration = (level: number, mode: GAME_MODES): number => {
+  let duration = 0;
+  switch (mode) {
+    case GAME_MODES.EASY:
+      duration = TIMER_DURATION_WRT_LEVEL.easy[level as keyof typeof TIMER_DURATION_WRT_LEVEL.easy];
+      break;
+    case GAME_MODES.MEDIUM:
+      duration = TIMER_DURATION_WRT_LEVEL.medium[level as keyof typeof TIMER_DURATION_WRT_LEVEL.medium];
+      break;
+    case GAME_MODES.HARD:
+      duration = TIMER_DURATION_WRT_LEVEL.hard[level as keyof typeof TIMER_DURATION_WRT_LEVEL.hard];
+      break;
+    default:
+      duration = TIMER_DURATION_WRT_LEVEL.easy[level as keyof typeof TIMER_DURATION_WRT_LEVEL.easy];
+      break;
+  }
+  return duration;
 };

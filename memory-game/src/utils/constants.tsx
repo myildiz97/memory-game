@@ -75,3 +75,9 @@ export const CARD_VISIBILITY_TIMES_WRT_LEVEL = {
   [GAME_MODES.MEDIUM]: { 1: 1500, 2: 2500, 3: 4000, 4: 6000, 5: 8000 },
   [GAME_MODES.HARD]: { 1: 2000, 2: 4000, 3: 6000, 4: 8000, 5: 10000 },
 };
+
+export const TIMER_DURATION_WRT_LEVEL = {
+  [GAME_MODES.EASY]: { 1: 10, 2: 15, 3: 25, 4: 40, 5: 60 },
+  [GAME_MODES.MEDIUM]: { 1: 15, 2: 25, 3: 40, 4: 60, 5: 80 },
+  [GAME_MODES.HARD]: { 1: 20, 2: 40, 3: 60, 4: 80, 5: 100 },
+};

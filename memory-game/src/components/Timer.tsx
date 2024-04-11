@@ -1,5 +1,6 @@
 import { RootState } from '@/app/store';
 import { setGameTimeUp } from '@/redux/game/gameSlice';
+import { getTimerDuration } from '@/utils/helpers';
 import { useState, useEffect, FC, useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
@@ -8,9 +9,10 @@ interface ITimerProps {
 
 const Timer: FC<ITimerProps> = () => {
   const dispatch = useDispatch();
-  const { durationInSeconds, timerResetFlag } = useSelector((state: RootState) => state.game);
+  const { timerResetFlag, level } = useSelector((state: RootState) => state.game);
+  const { mode } = useSelector((state: RootState) => state.settings);
 
-  const [seconds, setSeconds] = useState<number>(durationInSeconds);
+  const [seconds, setSeconds] = useState<number>(getTimerDuration(level, mode));
   const timer = useRef<NodeJS.Timeout | null>(null);
 
   useEffect(() => {
@@ -35,8 +37,9 @@ const Timer: FC<ITimerProps> = () => {
   }, [seconds, dispatch]);
 
   useEffect(() => {
-    setSeconds(durationInSeconds);
-  }, [timerResetFlag, durationInSeconds]);
+    const timerDuration = getTimerDuration(level, mode);
+    setSeconds(timerDuration);
+  }, [timerResetFlag, level, mode]);
 
   const minutes = Math.floor(seconds / 60);
   const remainingSeconds = seconds % 60;
