@@ -26,3 +26,8 @@ export enum RESULTS {
   TIME_LOSE = 'Time is up! Nice try',
   SELECT_LOSE = 'Wrong selection! Nice try',
 }
+
+export enum TIME_TEXT {
+  TIMED = 'Timed',
+  TIMELESS = 'Timeless',
+}

@@ -1,8 +1,10 @@
-import { GAME_MODES, GAME_MODES_GRID, RESULTS } from './types';
+import { GAME_MODES, GAME_MODES_GRID, RESULTS, TIME_TEXT } from './types';
 
 export const INITIAL_NICKNAME = 'Player';
 export const INITIAL_MODE = GAME_MODES.EASY;
+export const INITIAL_MODE_GRID = GAME_MODES_GRID.EASY;
 export const INITIAL_TIME = false;
+export const INITIAL_TIME_TEXT = TIME_TEXT.TIMELESS;
 
 export const SETTINGS_REDUCER_NAME = 'settings';
 export const GAME_REDUCER_NAME = 'game';

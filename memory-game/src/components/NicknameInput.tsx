@@ -10,15 +10,14 @@ interface INicknameInputProps {
 
 const NicknameInput: FC<INicknameInputProps> = () => {
   const dispatch = useDispatch();
-  const settings = useSelector((state: RootState) => state.settings);
-  const { nickname } = settings;
+  const { nickname } = useSelector((state: RootState) => state.settings);
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     dispatch(setNickname(e.target.value));
   };
 
   return (
-    <div className="grid w-full max-w-sm items-center gap-1.5">
+    <div className="grid w-full max-w-sm items-center">
       <Input type='text' id='nickname' placeholder={INITIAL_NICKNAME} onChange={handleChange} value={nickname} />
     </div>
   );

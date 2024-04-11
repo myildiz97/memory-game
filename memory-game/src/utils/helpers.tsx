@@ -1,5 +1,5 @@
 import { GAME_MODES_LIST, LEVELS, SCORES } from './constants';
-import { GAME_MODES } from './types';
+import { GAME_MODES, GAME_MODES_GRID } from './types';
 
 export const shuffleArray = (array: string[]): string[] => {
   const newArray = [...array];
@@ -54,4 +54,24 @@ export const getRandomGridValues = (gridValues: string[], levelOfMode: number): 
 export const calculateNewScore = (score: number, mode: GAME_MODES, isTimed: boolean): number => {
   const newScore = isTimed ? score + SCORES[mode].timed : score + SCORES[mode].timeless;
   return newScore;
+};
+
+export const getModeGrid = (mode: GAME_MODES): string => {
+  let modeGrid = '';
+  switch (mode) {
+    case GAME_MODES.EASY:
+      modeGrid = GAME_MODES_GRID.EASY;
+      break;
+    case 'medium':
+      modeGrid = GAME_MODES_GRID.MEDIUM;
+      break;
+    case 'hard':
+      modeGrid = GAME_MODES_GRID.HARD;
+      break;
+    default:
+      modeGrid = '';
+      break;
+  }
+
+  return modeGrid;
 };

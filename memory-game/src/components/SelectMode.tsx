@@ -1,4 +1,4 @@
-import { FC } from 'react'
+import { FC } from 'react';
 import {
   Select,
   SelectContent,
@@ -7,24 +7,23 @@ import {
   SelectLabel,
   SelectTrigger,
   SelectValue,
-} from './ui/Select'
-import { GAME_MODES_LIST } from '@/utils/constants'
-import { useDispatch, useSelector } from 'react-redux'
-import { setMode } from '@/redux/settings/settingsSlice'
-import { GAME_MODES } from '@/utils/types'
-import { RootState } from '@/app/store'
+} from './ui/Select';
+import { GAME_MODES_LIST } from '@/utils/constants';
+import { useDispatch, useSelector } from 'react-redux';
+import { setMode } from '@/redux/settings/settingsSlice';
+import { GAME_MODES } from '@/utils/types';
+import { RootState } from '@/app/store';
 
 interface ISelectModeProps {
 }
 
 export const SelectMode: FC<ISelectModeProps> = () => {
-  const dispatch = useDispatch()
-  const settings = useSelector((state: RootState) => state.settings)
-  const { mode } = settings
+  const dispatch = useDispatch();
+  const { mode } = useSelector((state: RootState) => state.settings);
 
   const handleValueChange = (value: GAME_MODES) => {
-    dispatch(setMode(value))
-  }
+    dispatch(setMode(value));
+  };
 
   return (
     <Select onValueChange={handleValueChange} defaultValue={GAME_MODES_LIST[0].value} value={mode}>
@@ -42,5 +41,5 @@ export const SelectMode: FC<ISelectModeProps> = () => {
         </SelectGroup>
       </SelectContent>
     </Select>
-  )
-}
+  );
+};
