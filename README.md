@@ -19,5 +19,6 @@ npm install
 npm run dev
 ```
 ## TO-DO
+- [ ] Deploy on Netlify
 - [ ] Display the value on grid that found correctly.
 - [ ] Subtract the found value from the desired row.
