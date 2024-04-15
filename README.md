@@ -20,6 +20,6 @@ npm run dev
 ```
 ## TO-DO
 - [ ] Prevent player to intereact with cards until the cards become invisible.
-- [ ] Deploy on Netlify.
+- [X] Deploy on Vercel.
 - [ ] Display the value on grid that found correctly.
 - [ ] Subtract the found value from the desired row.
